@@ -11,11 +11,11 @@ defmodule NervesJp12.LedController do
   end
 
   def on(pin) do
-    GenServer.cast(__MODULE__, {:on, pin})
+    GenServer.cast(__MODULE__, {:on, pin, self()})
   end
 
   def off(pin) do
-    GenServer.cast(__MODULE__, {:off, pin})
+    GenServer.cast(__MODULE__, {:off, pin, self()})
   end
 
   def pin(pin) do
