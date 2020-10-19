@@ -6,6 +6,10 @@ defmodule NervesJp12.Application do
   use Application
 
   def start(_type, _args) do
+    System.cmd("epmd", ~w"-daemon")
+    Node.start(:"nerves_jp_12@nerves.local")
+    Node.set_cookie(:nerves_jp_12)
+
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: NervesJp12.Supervisor]
