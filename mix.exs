@@ -31,7 +31,7 @@ defmodule NervesJp12.MixProject do
   def application do
     [
       mod: {NervesJp12.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :inets]
     ]
   end
 
